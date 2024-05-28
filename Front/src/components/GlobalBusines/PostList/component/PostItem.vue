@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type {PropType, Ref} from "vue";
+import {computed, type PropType, type Ref} from "vue";
 import type {Post} from "@/components/GlobalBusines/PostList/types/Post";
 import {onMounted, ref} from "vue";
 import getPostImages from "@/components/GlobalBusines/PostList/api/getPostImages";
@@ -30,7 +30,13 @@ const userInfo = {
 onMounted(() => {
   getPostImages(props?.post?.id).then(res => {
     postImages.value = res.data
+    console.log(postImages.value.length)
   })
+})
+
+
+const test = computed(() => {
+  return postImages.value.length
 })
 
 </script>
@@ -72,8 +78,8 @@ onMounted(() => {
     <div class="post__content content">
       {{post.content}}
     </div>
-    <div class="post__images images d-flex flex-wrap ga-1">
-      <image-slider :image-size="{width: '200px', height: '300px'}" :is-required-short="true" :images="postImages" :slider-for="'post'" :user-info="userInfo"/>
+    <div class="post__images images d-flex flex-wrap ga-1" >
+      <image-slider :image-size="{width: '200px', height: '300px'}" :is-required-short="true" :images="postImages" :slider-for="'post'" :user-info="userInfo" />
     </div>
     <div class="post__interaction interaction">
       <div class="interaction__likes d-flex align-center ga-2 ">
@@ -100,6 +106,10 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+
+
+
+//=================================================================================
   .post {
     background-color: #222222;
     border: 1px solid var(--lightDar);
@@ -127,6 +137,7 @@ onMounted(() => {
       font-weight: 500;
       font-size: 14px;
       gap: 8px;
+      user-select: none;
     }
   }
   .interaction {

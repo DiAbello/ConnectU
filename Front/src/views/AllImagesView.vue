@@ -2,10 +2,20 @@
     <div class="allImages bg-grey-darken-4 rounded pa-4" >
         <div class="d-flex justify-space-between align-center my-3">
             <h3 class="title pl-2">Все изображения</h3>
-            <VBtn theme="dark" style="text-transform: none;" v-if="store.user?.id === Number(router.currentRoute.value.params.id)">Загрузить изображение</VBtn>
+            <VBtn
+                theme="dark"
+                style="text-transform: none;"
+                v-if="store.user?.id === Number(router.currentRoute.value.params.id)"
+            >
+              Загрузить изображение
+            </VBtn>
         </div>
         <VDivider/>
-        <UserImages :user="store.selectedProfile" :images="store.userImages" v-if="store.selectedProfile !== null"/>
+        <UserImages
+            :user="store.selectedProfile"
+            :images="store.userImages"
+            v-if="store.selectedProfile !== null"
+        />
     </div>
 </template>
 

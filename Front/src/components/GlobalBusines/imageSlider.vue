@@ -33,7 +33,7 @@ const props = defineProps({
     required: true
   }
 });
-//умняш
+
 const url = `/src/assets/images/users/${props.userInfo?.tag}/`;
 const defaultUrl = "/src/assets/images/users/";
 const urlForUserPost = `/src/assets/images/posts/users/${props.userInfo?.tag}/`;
@@ -59,7 +59,8 @@ watch(selectedIndex, (newVal) => {
         :width="imageSize.width"
         :height="imageSize?.height"
         @click="selectedIndex = index"
-        class="cursor-pointer"
+        class="cursor-pointer pipa"
+          :class="sliderFor === 'post' ? {threeImgItems: images.length === 3, fourImgItems: images.length === 4, fiveImgItems: images.length === 5} : ''"
         cover
       >
       </VImg>
@@ -168,3 +169,35 @@ watch(selectedIndex, (newVal) => {
     </template>
   </VDialog>
 </template>
+
+<style scoped lang="scss">
+//=================================================================================
+.threeImgItems {
+  &:nth-child(1) {
+    flex: 0 1 100%;
+  }
+  &:nth-child(n + 2) {
+    flex: 0 1 calc(50% - 2px);
+    height: 150px !important;
+  }
+}
+.fourImgItems {
+  &:nth-child(1) {
+    flex: 0 1 100%;
+  }
+  &:nth-child(n + 2) {
+    flex: 0 1 calc(33.33% - 3px);
+    height: 130px !important;
+  }
+}
+.fiveImgItems {
+  &:nth-child(1) {
+    flex: 0 1 100%;
+  }
+  &:nth-child(n + 2) {
+    flex: 0 1 calc(25% - 3px);
+    height: 110px !important;
+  }
+}
+
+</style>

@@ -1,6 +1,13 @@
 <template>
   <div class="d-flex flex-wrap ga-1 my-4">
-    <image-slider :is-required-short="false" :images="images" v-if="images" :user-info="userInfo" :image-size="{width: '200px'}" :slider-for="'default'"/>
+    <image-slider
+        :is-required-short="false"
+        :images="images"
+        v-if="images"
+        :user-info="userInfo"
+        :image-size="{width: '200px'}"
+        :slider-for="'default'"
+    />
   </div>
 </template>
 

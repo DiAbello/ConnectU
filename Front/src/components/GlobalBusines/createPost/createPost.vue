@@ -43,7 +43,7 @@ function autoSize() {
 }
 
 function createUserPost() {
-  if(newPost.value.text.length > 0 || newPost.value.images.length > 0) {
+  if(newPost.value.text.length > 0 || newPost.value.images.length > 0 && newPost.value.images.length <= 5) {
     createPostAPI.createUserPost(props?.user?.tag, props?.user?.id, newPost.value).then(res => {
       console.log(res.data)
       postStore.posts.unshift(res.data)

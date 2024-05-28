@@ -29,13 +29,13 @@ function scrollTo() {
     let currentPosition = window.scrollY
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'instant'
     })
     lastScrollPosition.value = currentPosition
   } else {
     window.scrollTo({
       top: lastScrollPosition.value,
-      behavior: 'smooth'
+      behavior: 'instant'
     })
   }
 }
@@ -65,7 +65,7 @@ function scrollTo() {
     }
   //=====================================================================================================
     .scroll {
-      width: 450px;
+      width: 350px;
       height: 100vh;
       position: fixed;
       left: 0;

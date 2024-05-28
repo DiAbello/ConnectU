@@ -33,6 +33,16 @@ const router = createRouter({
       path: '/edit',
       name: 'edit',
       component: () => import('@/views/editUserView.vue')
+    },
+    {
+      path: '/im',
+      name: 'messages',
+      component: () => import('@/views/ChatsView.vue')
+    },
+    {
+      path: '/im:chatId(.*)',
+      name: 'currentChat',
+      component: () => import('@/views/ChatView.vue')
     }
   ]
 })
@@ -47,7 +57,7 @@ router.beforeEach((to, from, next) => {
 })
 router.beforeEach((to, from, next) => {
   const store = useUserStore()
-  if((to.path === '/feed' || to.path === '/profile') && store.user === null) {
+  if((to.path === '/feed' || to.path === '/profile' || to.path === '/im') && store.user === null) {
     next('/auth')
   } else {
     next()
