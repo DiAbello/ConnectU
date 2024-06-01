@@ -137,16 +137,36 @@
               <!--            ------------------------------------------------------------------------------------------------->
             </div>
             <div class="buttons d-flex ga-3 align-center" v-if="user?.id !== store.user?.id ?? store.selectedProfile">
-              <VBtn theme="dark" style="text-transform: none; background-color: #393939; letter-spacing: normal" @click="store.addToFriends(store.user?.id, user?.id)" v-if="store.isFriendshipAvailable === 'can add to friend'">
+              <VBtn
+                  theme="dark"
+                  style="text-transform: none; background-color: #393939; letter-spacing: normal"
+                  @click="store.addToFriends(store.user?.id, user?.id)"
+                  v-if="store.isFriendshipAvailable === 'can add to friend'"
+              >
                 Добавить в друзья
               </VBtn>
-              <VBtn theme="dark" style="text-transform: none; background-color: #565656; letter-spacing: normal" @click="store.addToFriends(store.user?.id, user?.id)" v-if="store.isFriendshipAvailable === 'request sended'">
+              <VBtn
+                  theme="dark"
+                  style="text-transform: none; background-color: #565656; letter-spacing: normal"
+                  @click="store.addToFriends(store.user?.id, user?.id)"
+                  v-if="store.isFriendshipAvailable === 'request sended'"
+              >
                 Запрос отправлен
               </VBtn>
-              <VBtn theme="dark" style="text-transform: none; background-color: #565656; letter-spacing: normal" @click="store.addToFriends(store.user?.id, user?.id)" v-if="store.isFriendshipAvailable === 'Want to be friends'">
+              <VBtn
+                  theme="dark"
+                  style="text-transform: none; background-color: #565656; letter-spacing: normal"
+                  @click="store.acceptFriendship({from: store.user?.id, to: store.selectedProfile?.id})"
+                  v-if="store.isFriendshipAvailable === 'Want to be friends'"
+              >
                 Хочет добавить вас в друзья
               </VBtn>
-              <VBtn theme="dark" style="text-transform: none; background-color: #565656; letter-spacing: normal" @click="store.addToFriends(store.user?.id, user?.id)" v-if="store.isFriendshipAvailable === 'friends'">
+              <VBtn
+                  theme="dark"
+                  style="text-transform: none; background-color: #565656; letter-spacing: normal; background-color: #137313;"
+                  @click="store.addToFriends(store.user?.id, user?.id)"
+                  v-if="store.isFriendshipAvailable === 'friends'"
+              >
                 В друзьях
               </VBtn>
               <v-menu open-on-hover location="bottom left" theme="dark">

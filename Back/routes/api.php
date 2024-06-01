@@ -39,6 +39,7 @@ Route::post('/createUser', [UserController::class, 'createUser']) -> name('creat
 Route::post('/updateUserImage', [imageController::class, 'updateUserImage']) -> name('updateUserImage');
 Route::post('/addToFriends', [FrinedController::class, 'addToFriends']) -> name('addToFriends');
 Route::post('/checkFriendStatus', [FrinedController::class, 'checkFriendStatus']) -> name('checkFriendStatus');
+Route::post('/acceptFriendship', [FrinedController::class, 'acceptFriendship']);
 
 Route::get('/getReports', [AdminController::class, 'getReposts']);
 Route::post('/deleteUser', [AdminController::class, 'deleteUser']);

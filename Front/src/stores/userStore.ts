@@ -6,6 +6,7 @@ import axios from "axios";
 import convertDate from '@/functions/dateConvert';
 import $api from "@/API/http";
 import type {UnwrapRef} from "vue";
+import jsonToData from "@/functions/jsonToData";
 
 export const useUserStore = defineStore('useUserStore', {
     state: () => ({
@@ -48,6 +49,7 @@ export const useUserStore = defineStore('useUserStore', {
         async getAllFriends(userId: UnwrapRef<User["id"]> | undefined) {
             const friends = await $api.get(`/getAllFriends?id=${userId}`)
             try {
+                console.log(friends)
                 this.friends = friends.data
             } catch (e) {
                 console.log(e)
@@ -64,7 +66,9 @@ export const useUserStore = defineStore('useUserStore', {
                 }
             })
         },
-
+        async acceptFriendship(data: Object) {
+            await $api.post('/acceptFriendship', jsonToData(data))
+        },
         async checkFriendStatus(from: UnwrapRef<User["id"]> | undefined, to: number | undefined) {
             console.log(from)
             console.log(to)

@@ -1,7 +1,7 @@
 <template>
-  <friend-item v-for="friend in friends" :key="friend.id">
-    {{friend}}
-  </friend-item>
+  <div class="friend-list">
+    <friend-item v-for="friend in friends" :key="friend.id" :friend="friend" class=""/>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -17,6 +17,11 @@ const props = defineProps({
 })
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.friend-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
+}
 </style>

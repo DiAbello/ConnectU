@@ -26,14 +26,16 @@ const postStore = usePostStore()
 
 onMounted(() => {
     store.getUsersProfile(route.path.replace('/', ''))
-    store.getAllFriends(store.selectedProfile?.id)
+    setTimeout(() => {
+      store.getAllFriends(store.selectedProfile?.id)
+    }, 1000)
 })
 
 onUnmounted(() => {
   store.selectedProfile = null
-  console.log('Удаляю пользователя при смене profileview')
   store.userImages = []
   postStore.posts = []
+  store.friends = []
 })
 </script>
 

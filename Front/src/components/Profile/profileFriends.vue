@@ -28,8 +28,12 @@ const props = defineProps({
   .profile-friends {
     flex: 1 0 auto;
     height: fit-content;
+    max-width: 100%;
     border: 1px solid var(--lightDar);
     padding: 12px;
     background-color: #222222;
+    .friends {
+      max-width: 320px;
+    }
   }
 </style>
