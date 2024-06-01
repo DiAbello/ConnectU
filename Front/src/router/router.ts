@@ -43,6 +43,11 @@ const router = createRouter({
       path: '/im:chatId(.*)',
       name: 'currentChat',
       component: () => import('@/views/ChatView.vue')
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: () => import('@/views/AdminView.vue')
     }
   ]
 })
@@ -59,6 +64,14 @@ router.beforeEach((to, from, next) => {
   const store = useUserStore()
   if((to.path === '/feed' || to.path === '/profile' || to.path === '/im') && store.user === null) {
     next('/auth')
+  } else {
+    next()
+  }
+})
+router.beforeEach((to, from, next) => {
+  const store = useUserStore()
+  if((to.path === '/admin') && store.user?.tag !== '@admin') {
+    next('/feed')
   } else {
     next()
   }

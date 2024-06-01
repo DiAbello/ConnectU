@@ -10,7 +10,7 @@ const useStorage = {
         }
         localStorage.setItem('local_users', JSON.stringify(users))
     },
-    deleteFromStorage(id: number) {
+    deleteFromStorage(id: number | undefined) {
         let users: User[] = JSON.parse(localStorage.getItem('local_users') || '{}')
         users = users.filter(el => el.id !== id)
         localStorage.setItem('local_users', JSON.stringify(users))

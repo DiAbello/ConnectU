@@ -33,7 +33,7 @@ class PostController extends Controller
 
     function getUserPosts(Request $request) {
         return DB::table('posts')
-            -> select('posts.id', 'users.id as userId', 'users.surname as surname', 'users.name as name', 'users.tag as tag', 'users.profile_photo as profile_photo', 'posts.created_at', 'posts.content', 'posts.like_count')
+            -> select('posts.id', 'users.id as userId', 'users.surname as surname', 'users.name as name', 'users.tag as tag', 'users.profile_photo as profile_photo', 'posts.created_at', 'posts.content')
             -> join('users', 'posts.user_id', '=', 'users.id')
             -> where('user_id', '=', $request -> id)
             -> latest()
@@ -44,7 +44,7 @@ class PostController extends Controller
     }
     function getAllPosts(Request $request) {
         return DB::table('posts')
-            -> select('posts.id', 'users.id as userId',  'users.surname as surname', 'users.name as name', 'users.tag as tag', 'users.profile_photo as profile_photo', 'posts.created_at', 'posts.content', 'posts.like_count')
+            -> select('posts.id', 'users.id as userId',  'users.surname as surname', 'users.name as name', 'users.tag as tag', 'users.profile_photo as profile_photo', 'posts.created_at', 'posts.content')
             -> join('users', 'posts.user_id', '=', 'users.id')
             -> latest()
             -> get();

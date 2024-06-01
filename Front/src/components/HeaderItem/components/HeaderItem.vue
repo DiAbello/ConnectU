@@ -10,6 +10,11 @@
           </router-link>
           <SearchComponent/>
           <NotificationsComponent/>
+          <router-link to="/admin" v-if="store.user?.tag === '@admin'">
+            <VBtn style="text-transform: none; font-size: 13px; letter-spacing: normal;">
+              Админ Панель
+            </VBtn>
+          </router-link>
         </div>
           <UserMenu v-if="store.user"/>
       </div>

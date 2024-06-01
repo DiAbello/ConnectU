@@ -136,7 +136,7 @@
               </VMenu>
               <!--            ------------------------------------------------------------------------------------------------->
             </div>
-            <div class="buttons d-flex ga-3" v-if="user?.id !== store.user?.id ?? store.selectedProfile">
+            <div class="buttons d-flex ga-3 align-center" v-if="user?.id !== store.user?.id ?? store.selectedProfile">
               <VBtn theme="dark" style="text-transform: none; background-color: #393939; letter-spacing: normal" @click="store.addToFriends(store.user?.id, user?.id)" v-if="store.isFriendshipAvailable === 'can add to friend'">
                 Добавить в друзья
               </VBtn>
@@ -149,12 +149,26 @@
               <VBtn theme="dark" style="text-transform: none; background-color: #565656; letter-spacing: normal" @click="store.addToFriends(store.user?.id, user?.id)" v-if="store.isFriendshipAvailable === 'friends'">
                 В друзьях
               </VBtn>
+              <v-menu open-on-hover location="bottom left" theme="dark">
+                <template v-slot:activator="{ props }">
+                  <font-awesome-icon :icon="['fas', 'ellipsis']" class="cursor-pointer" style="color: #656565; font-size: 18px;" v-bind="props"/>
+                </template>
+                <v-list>
+                  <v-list-item class="cursor-pointer d-flex align-center ga-3" style="color: red;" @click="reportUser">
+                    <font-awesome-icon :icon="['fas', 'circle-exclamation']" />
+                    Пожаловаться
+                  </v-list-item>
+                  <v-list-item class="cursor-pointer d-flex align-center ga-3" style="color: red;" v-if="store.user?.tag === '@admin'" @click="deleteUser">
+                    <font-awesome-icon :icon="['fas', 'circle-exclamation']" />
+                    Заблокировать пользователя
+                  </v-list-item>
+                </v-list>
+              </v-menu>
             </div>
           </div>
         </div>
       </v-col>
     </v-row>
-
   </div>
 </template>
 
@@ -165,6 +179,9 @@ import API from "@/API/api";
 import {ref} from "vue";
 import {useUserStore} from "@/stores/userStore";
 import useStorage from "@/localStorage/useStorage";
+import adminAPI from '@/components/adminServices/API/api'
+import {useRouter} from "vue-router";
+import {useReportsStore} from "@/components/adminServices/store/reportsStore";
 
 const props = defineProps({
   user: {
@@ -177,7 +194,30 @@ const defaultUrl = '/src/assets/images/users/'
 const updateImageLoad = ref(false)
 const isImageModalOpen = ref(false)
 const store = useUserStore()
+const router = useRouter()
+const reportStore = useReportsStore()
 
+function deleteUser() {
+  adminAPI.deleteUser(store.selectedProfile?.id).then(res => {
+    useStorage.deleteFromStorage(store.selectedProfile?.id)
+    router.push('/admin')
+    adminAPI.getReports().then(res => {
+      reportStore.reports = res.data
+    })
+  })
+}
+
+function reportUser() {
+  const data = {
+    senderId: store.user?.id,
+    offendingId: props.user?.id,
+    content: 'Подозрительный пользователь'
+  }
+  adminAPI.createReport(data).then(res => {
+    console.log(res.data)
+  })
+
+}
 function updateImage(event: any) {
   updateImageLoad.value = true
   API.updateImage(event.target.files[0], props.user?.id, props.user?.tag, event.target.files[0].name).then(res => {

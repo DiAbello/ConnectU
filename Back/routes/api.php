@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrinedController;
 use App\Http\Controllers\imageController;
 use App\Http\Controllers\PostController;
@@ -38,6 +39,11 @@ Route::post('/createUser', [UserController::class, 'createUser']) -> name('creat
 Route::post('/updateUserImage', [imageController::class, 'updateUserImage']) -> name('updateUserImage');
 Route::post('/addToFriends', [FrinedController::class, 'addToFriends']) -> name('addToFriends');
 Route::post('/checkFriendStatus', [FrinedController::class, 'checkFriendStatus']) -> name('checkFriendStatus');
+
+Route::get('/getReports', [AdminController::class, 'getReposts']);
+Route::post('/deleteUser', [AdminController::class, 'deleteUser']);
+Route::post('/createReport', [AdminController::class, 'createReport']);
+Route::delete('/deleteReport', [AdminController::class, 'deleteReport']);
 
 
 Route::post('/createUserPost', [PostController::class, 'uploadUserPost']) -> name('uploadUserPost');
