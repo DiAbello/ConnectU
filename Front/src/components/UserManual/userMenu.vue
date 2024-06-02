@@ -93,6 +93,9 @@ function logout() {
   &:hover {
     background-color: #333333;
   }
+  @media (max-width: 425px) {
+    display: none;
+  }
 }
 .hovering {
   background-color: var(--lightDar);

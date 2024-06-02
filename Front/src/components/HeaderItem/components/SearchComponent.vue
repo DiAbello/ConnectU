@@ -14,7 +14,7 @@ watch(queryResponse, () => {
 <template>
   <v-menu :close-on-content-click="true" theme="dark" location="bottom left">
     <template v-slot:activator="{props}">
-      <label class="d-flex align-center input-label" style="margin-left: 58px" v-bind="props">
+      <label class="d-flex align-center input-label" v-bind="props">
         <font-awesome-icon :icon="['fas', 'magnifying-glass']" style="color: #757575"/>
         <input type="text" class="input" placeholder="Поиск" @input="handleInput" v-model="inputValue" @keydown="queryStatus = true">
       </label>
@@ -62,6 +62,10 @@ watch(queryResponse, () => {
   border-radius: 10px;
   padding: 8px 30px 8px 15px;
   transition: background-color .3s ease;
+  margin-left: 58px;
+  @media (max-width: 425px) {
+    margin: 16px;
+  }
   &:hover {
     background-color: #525252;
   }

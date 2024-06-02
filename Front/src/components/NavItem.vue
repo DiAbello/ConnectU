@@ -49,14 +49,31 @@ const store = useUserStore()
     color: white;
     position: relative;
     z-index: 30;
+    @media (max-width: 425px) {
+      flex: 1 1 auto;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      background-color: #222222;
+    }
 
     &__content {
       display: flex;
       flex-direction: column;
       padding-top: 10px;
+      @media (max-width: 425px) {
+        padding: 0;
+      }
     }
 
     &__list {
+      @media (max-width: 425px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px;
+      }
     }
 
     &__item {
@@ -68,6 +85,9 @@ const store = useUserStore()
       }
       svg {
         font-size: 18px;
+        @media (max-width: 425px) {
+          font-size: 22px;
+        }
       }
     }
 
@@ -75,11 +95,18 @@ const store = useUserStore()
       color: white;
       display: flex;
       align-items: center;
+      gap: 4px;
+      @media (max-width: 425px) {
+        flex-direction: column;
+      }
       span {
         font-size: 12px;
         letter-spacing: 0.3px;
         font-weight: 400;
         margin-left: 10px;
+        @media (max-width: 425px) {
+          margin: 0;
+        }
       }
     }
   }

@@ -29,6 +29,6 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .feed {
-flex: 0 0 550px;
+flex: 0 1 550px;
 }
 </style>

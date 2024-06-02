@@ -22,6 +22,6 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .admin {
-  flex: 0 0 550px;
+  flex: 0 1 550px;
 }
 </style>

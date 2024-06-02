@@ -65,6 +65,9 @@ function scrollTo() {
     }
   //=====================================================================================================
     .scroll {
+      @media (max-width: 425px) {
+        display: none;
+      }
       width: 350px;
       height: 100vh;
       position: fixed;

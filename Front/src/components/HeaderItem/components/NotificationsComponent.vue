@@ -17,6 +17,9 @@
 
 <style scoped lang="scss">
 .notification {
+  @media (max-width: 425px) {
+    display: none;
+  }
   &__icon {
     cursor: pointer;
     margin-left: 15px;

@@ -51,6 +51,7 @@ onMounted(() => {
     max-width: 1135px;
     margin: 0 auto;
     padding: 0 15px;
+    overflow: hidden;
     .content {
       display: flex;
       align-items: flex-start;

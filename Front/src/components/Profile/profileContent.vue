@@ -34,7 +34,7 @@ onMounted(() => {
 
 <style scoped>
 .profile-content {
-  flex: 0 0 550px;
+  flex: 0 1 550px;
   gap: 16px;
 }
 </style>

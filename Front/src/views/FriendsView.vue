@@ -37,7 +37,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .friends {
-  flex: 0 0 550px;
+  flex: 0 1 550px;
   &__body {
     background-color: #222222;
     border: 1px solid var(--lightDar);

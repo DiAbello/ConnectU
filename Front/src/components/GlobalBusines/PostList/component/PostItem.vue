@@ -79,7 +79,13 @@ const test = computed(() => {
       {{post.content}}
     </div>
     <div class="post__images images d-flex flex-wrap ga-1" >
-      <image-slider :image-size="{width: '200px', height: '300px'}" :is-required-short="true" :images="postImages" :slider-for="'post'" :user-info="userInfo" />
+      <image-slider
+          :image-size="{width: '200px', height: '300px'}"
+          :is-required-short="true"
+          :images="postImages"
+          :slider-for="'post'"
+          :user-info="userInfo"
+      />
     </div>
     <div class="post__interaction interaction">
       <div class="interaction__likes d-flex align-center ga-2 ">

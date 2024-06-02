@@ -38,7 +38,7 @@ const store = useUserStore()
 
 <style scoped>
   .profile-friends {
-    flex: 1 0 auto;
+    flex: 1 1 auto;
     height: fit-content;
     max-width: 100%;
     border: 1px solid var(--lightDar);

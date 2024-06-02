@@ -41,10 +41,13 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
   .profile {
-    flex: 0 0 911px;
+    flex: 0 1 911px;
     .profile-bottom {
-      padding: 16px 0;
+      padding: 16px 0 16px 0;
       gap: 16px;
+      @media (max-width: 425px) {
+        flex-direction: column;
+      }
     }
   }
 </style>

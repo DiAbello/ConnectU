@@ -2,7 +2,7 @@
   <div class="profile">
     <v-row class="ma-0" style="max-width: 911px">
       <v-col cols="12" class="profile-header d-flex align-end justify-space-between">
-        <div class="d-flex align-center flex-0-0-100 ga-3">
+        <div class="d-flex align-center flex-0-0-100 ga-3 header-flex">
           <div>
             <!--  Image Menu        -------------------------------------------------------------------------->
             <VMenu open-on-hover location="bottom left">
@@ -100,7 +100,7 @@
 
               </div>
             </div>
-            <div class="buttons d-flex ga-3" v-if="user?.id === store.user?.id">
+            <div class="buttons d-flex ga-3 my-pr-buttons" v-if="user?.id === store.user?.id">
               <router-link to="/edit">
                 <VBtn theme="dark" style="text-transform: none; background-color: #393939; letter-spacing: normal">Редактировать профиль</VBtn>
               </router-link>
@@ -136,7 +136,7 @@
               </VMenu>
               <!--            ------------------------------------------------------------------------------------------------->
             </div>
-            <div class="buttons d-flex ga-3 align-center" v-if="user?.id !== store.user?.id ?? store.selectedProfile">
+            <div class="buttons d-flex ga-3 align-center " v-if="user?.id !== store.user?.id ?? store.selectedProfile">
               <VBtn
                   theme="dark"
                   style="text-transform: none; background-color: #393939; letter-spacing: normal"
@@ -255,7 +255,16 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-
+.header-flex {
+  @media (max-width: 425px) {
+    gap: 2px;
+  }
+}
+.my-pr-buttons {
+  @media (max-width: 425px) {
+    display: none !important;
+  }
+}
 .hovering {
   background-color: var(--lightDar) !important;
 }
@@ -264,13 +273,16 @@ onMounted(() => {
   cursor: pointer;
 }
 .profile {
-  flex: 0 0 911px;
+  flex: 0 1 911px;
 }
 .profile-header {
   background-color: var(--dark);
   padding: 20px;
   border-radius: 12px;
   border: 1px solid var(--lightDar);
+  @media (max-width: 425px) {
+    padding: 12px;
+  }
 }
 
 .info {

@@ -59,7 +59,7 @@ watch(selectedIndex, (newVal) => {
         :width="imageSize.width"
         :height="imageSize?.height"
         @click="selectedIndex = index"
-        class="cursor-pointer pipa"
+        class="cursor-pointer"
           :class="sliderFor === 'post' ? {threeImgItems: images.length === 3, fourImgItems: images.length === 4, fiveImgItems: images.length === 5} : ''"
         cover
       >
