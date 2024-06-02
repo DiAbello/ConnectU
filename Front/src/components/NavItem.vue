@@ -22,7 +22,7 @@
             </router-link>
           </li>
           <li class="nav__item">
-            <router-link to="/friends" class="nav__link">
+            <router-link :to="'/friends/' + store.user?.id" class="nav__link">
               <font-awesome-icon :icon="['fas', 'user-group']" style="color: var(--textColor)"/>
               <span>Друзья</span>
             </router-link>

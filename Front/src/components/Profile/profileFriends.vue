@@ -5,8 +5,18 @@
     </div>
     <v-divider v-if="false"/>
     <div class="friends --all pa-2">
-      Друзья
-      <friend-list :friends="friends"/>
+      <router-link :to="'/friends/' + store.selectedProfile?.id" style="color: white" class="d-flex align-center ga-2">
+        <div class="title">
+          Друзья
+        </div>
+        <div class="friends_count">
+         {{friends.length}}
+        </div>
+      </router-link>
+      <friend-list :friends="friends" v-if="friends.length > 0"/>
+      <div v-else class="no-friends">
+        Список друзей пуст...
+      </div>
     </div>
   </div>
 </template>
@@ -15,6 +25,7 @@
 import FriendList from "@/components/Profile/Friends/FriendList.vue";
 import type {PropType} from "vue";
 import type {User} from "@/types/User";
+import {useUserStore} from "@/stores/userStore";
 
 const props = defineProps({
   friends: {
@@ -22,6 +33,7 @@ const props = defineProps({
     required: true
   }
 })
+const store = useUserStore()
 </script>
 
 <style scoped>
@@ -34,6 +46,19 @@ const props = defineProps({
     background-color: #222222;
     .friends {
       max-width: 320px;
+    }
+    .no-friends {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #7c7c7c;
+    }
+    .title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .friends_count {
+      font-size: 12px;
+      color: #939393;
     }
   }
 </style>
