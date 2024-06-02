@@ -67,7 +67,10 @@ export const useUserStore = defineStore('useUserStore', {
             })
         },
         async acceptFriendship(data: Object) {
-            await $api.post('/acceptFriendship', jsonToData(data))
+            await $api.post('/acceptFriendship', jsonToData(data)).then(res => {
+                    this.checkFriendStatus(this.user?.id, this.selectedProfile?.id)
+                }
+            )
         },
         async checkFriendStatus(from: UnwrapRef<User["id"]> | undefined, to: number | undefined) {
             console.log(from)
