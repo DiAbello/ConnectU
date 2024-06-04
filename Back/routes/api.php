@@ -33,6 +33,7 @@ Route::get('/getUserPosts', [PostController::class, 'getUserPosts']) -> name('ge
 Route::get('/getPostImages', [PostController::class, 'getPostImages']) -> name('getPostImages');
 Route::get('/getAllPosts', [PostController::class, 'getAllPosts']) -> name('getAllPosts');
 Route::get('/getAllFriends', [FrinedController::class, 'getAllFriends']) -> name('getAllFriends');
+Route::get('/getFriendNotifications', [FrinedController::class, 'notificationFriend']);
 
 
 Route::post('/createUser', [UserController::class, 'createUser']) -> name('createUser');
@@ -51,6 +52,7 @@ Route::post('/createUserPost', [PostController::class, 'uploadUserPost']) -> nam
 
 //delete
 Route::delete('/deletePost', [PostController::class, 'deletePost']) -> name('deletePost');
+Route::delete('/denyFriendship', [FrinedController::class, 'denyFriendship']);
 
 //Search module
 Route::get('/getQueryResult', [QueryController::class, 'searchQueryGlobal']) -> name('searchQueryGlobal');

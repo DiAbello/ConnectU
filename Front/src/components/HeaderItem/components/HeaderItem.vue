@@ -9,7 +9,7 @@
             </div>
           </router-link>
           <SearchComponent/>
-          <NotificationsComponent/>
+          <NotificationsComponent :nt-friends="notificationsStore.notifications.friends"/>
           <router-link to="/admin" v-if="store.user?.tag === '@admin'">
             <VBtn style="text-transform: none; font-size: 13px; letter-spacing: normal;">
               Админ Панель
@@ -27,8 +27,11 @@ import {useUserStore} from "@/stores/userStore";
 import UserMenu from '@/components/UserManual/userMenu.vue'
 import NotificationsComponent from "@/components/HeaderItem/components/NotificationsComponent.vue";
 import SearchComponent from "@/components/HeaderItem/components/SearchComponent.vue";
+import {onMounted} from "vue";
+import {useNotificationsStore} from "@/stores/notificationsStore";
 
 const store = useUserStore()
+const notificationsStore = useNotificationsStore()
 
 </script>
 

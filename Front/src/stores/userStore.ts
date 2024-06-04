@@ -15,8 +15,14 @@ export const useUserStore = defineStore('useUserStore', {
         userImages: [] as Image[],
         selectedProfile: null as unknown as User | null | undefined,
         friends: [] as User[],
-        isFriendshipAvailable: '' as string
+        isFriendshipAvailable: '' as string,
+        searchFriend: '' as string
     }),
+    getters: {
+      getSearchedFriends(state) {
+          return () => state.friends.filter(el => el.name.match(this.searchFriend))
+      }
+    },
     actions: {
         deleteLocalUser(id: number) {
             this.localUsers = this.localUsers.filter(el => el.id !== id)
@@ -72,6 +78,11 @@ export const useUserStore = defineStore('useUserStore', {
                 }
             )
         },
+        async denyFriendship(from: number | undefined, to: number) {
+          await $api.delete(`/denyFriendship?from=${from}&to=${to}`).then(res => {
+              this.checkFriendStatus(this.user?.id, this.selectedProfile?.id)
+          })
+        },
         async checkFriendStatus(from: UnwrapRef<User["id"]> | undefined, to: number | undefined) {
             console.log(from)
             console.log(to)
@@ -87,5 +98,4 @@ export const useUserStore = defineStore('useUserStore', {
             }
         }
     }
-
 })

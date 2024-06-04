@@ -9,11 +9,11 @@
       </div>
       <div class="search-friends">
         <div class="search-label">
-          <input type="text" placeholder="Посик друзей" class="input">
+          <input type="text" placeholder="Посик друзей" class="input" v-model="store.searchFriend">
           <font-awesome-icon :icon="['fas', 'magnifying-glass']" class="search-icon"/>
         </div>
       </div>
-      <FriendsList :friends="store.friends"/>
+      <FriendsList :friends="store.getSearchedFriends()"/>
     </div>
   </div>
 </template>

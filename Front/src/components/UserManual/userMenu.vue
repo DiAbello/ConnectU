@@ -68,8 +68,10 @@ import {ref} from 'vue'
 import { useUserStore } from "@/stores/userStore";
 import { useRouter } from 'vue-router';
 import Cookies from 'universal-cookie';
+import {useNotificationsStore} from "@/stores/notificationsStore";
 
 const menu = ref(false)
+const notificationsStore = useNotificationsStore()
 const store = useUserStore()
 const url = `/src/assets/images/users/${store.user?.tag}/`
 const defaultUrl = '/src/assets/images/users/'
@@ -81,7 +83,8 @@ function logout() {
   router.push({path: '/auth'})
   store.user = null
   store.selectedProfile = null
-  console.log('удаляю пользователя при выходе')
+  store.friends = []
+  notificationsStore.notifications.friends = []
   store.userImages = []
 }
 </script>
