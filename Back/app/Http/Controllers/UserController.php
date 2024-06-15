@@ -57,4 +57,10 @@ class UserController extends Controller
         return DB::table('users')
             -> where('tag', '=', $request -> tag) -> first();
     }
+
+    function getUserById(Request $request)
+    {
+        return DB::table('users')
+            -> where('id', '=', $request -> id) -> first();
+    }
 }

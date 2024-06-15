@@ -1,6 +1,6 @@
 <template>
   <div class="chatList">
-    <ChatItem/>
+    <ChatItem v-for="chat in chatStore.getSearchedChats()" :key="chat.chatId" :chat="chat"/>
   </div>
 </template>
 
@@ -8,13 +8,15 @@
 import type {PropType} from "vue";
 import type {Chat} from "@/components/Messages/types/Chat";
 import ChatItem from "@/components/Messages/components/ChatItem/ChatItem.vue";
+import {useChatsStore} from "@/components/Messages/store/chatsStore";
 
 defineProps({
   chats: {
     type: [] as PropType<Chat[]>,
-    required: false
+    required: true
   }
 })
+const chatStore = useChatsStore()
 </script>
 
 <style scoped lang="scss">

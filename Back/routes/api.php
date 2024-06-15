@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FrinedController;
 use App\Http\Controllers\imageController;
 use App\Http\Controllers\PostController;
@@ -28,6 +29,7 @@ Route::get('/getUser', [UserController::class, 'getUser']) -> name('getUser');
 Route::get('/getUserByToken', [UserController::class, 'getUserByToken']) -> name('getUserByToken');
 Route::get('/getUserImages', [imageController::class, 'getUserImages']) -> name('getUserImages');
 Route::get('/getUserByTag', [UserController::class, 'getUserByTag']) -> name('getUserByTag');
+Route::get('/getUserById', [UserController::class, 'getUserById']);
 
 Route::get('/getUserPosts', [PostController::class, 'getUserPosts']) -> name('getUserPosts');
 Route::get('/getPostImages', [PostController::class, 'getPostImages']) -> name('getPostImages');
@@ -41,6 +43,11 @@ Route::post('/updateUserImage', [imageController::class, 'updateUserImage']) -> 
 Route::post('/addToFriends', [FrinedController::class, 'addToFriends']) -> name('addToFriends');
 Route::post('/checkFriendStatus', [FrinedController::class, 'checkFriendStatus']) -> name('checkFriendStatus');
 Route::post('/acceptFriendship', [FrinedController::class, 'acceptFriendship']);
+
+Route::post('/sendMessage', [ChatController::class, 'sendMessage']);
+Route::post('/getMessages', [ChatController::class, 'getMessages']);
+
+Route::get('/getChats', [ChatController::class, 'getChats']);
 
 Route::get('/getReports', [AdminController::class, 'getReposts']);
 Route::post('/deleteUser', [AdminController::class, 'deleteUser']);

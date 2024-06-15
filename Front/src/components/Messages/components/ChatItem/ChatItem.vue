@@ -1,47 +1,12 @@
 <template>
-  <div class="chatItem" @click="$router.push(`/im${1}`)">
+  <div class="chatItem" @click="$router.push(`/im${chat?.id}`)">
     <div class="chatItem__body body">
       <div class="body__img">
-        <img src="@/assets/images/users/@egoist/e4b61df4dbc010bdab8f2db1e0b6d495.jpg" alt="">
+        <img :src="url" alt="">
       </div>
       <div class="body__content content">
         <div class="content__username">
-          Павел Павлов
-        </div>
-        <div class="content__lastMessage">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, architecto autem beatae consequatur deserunt dolorem eos expedita fugiat iusto.
-        </div>
-      </div>
-      <div class="body__helpers helpers">
-        <div class="helpers__time">
-          24 апр
-        </div>
-        <div class="helpers__ui">
-          <v-menu open-on-hover location="bottom right" theme="dark">
-            <template v-slot:activator="{ props }">
-              <font-awesome-icon :icon="['fas', 'ellipsis']" class="cursor-pointer" style="color: #656565; font-size: 18px;" v-bind="props"/>
-            </template>
-            <v-list>
-              <v-list-item>
-                test
-              </v-list-item>
-              <v-list-item>
-                test
-              </v-list-item>
-            </v-list>
-          </v-menu>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="chatItem">
-    <div class="chatItem__body body">
-      <div class="body__img">
-        <img src="@/assets/images/users/@egoist/e4b61df4dbc010bdab8f2db1e0b6d495.jpg" alt="">
-      </div>
-      <div class="body__content content">
-        <div class="content__username">
-          Павел Павлов
+          {{chat?.name + ' ' + chat?.surname}}
         </div>
         <div class="content__lastMessage">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, architecto autem beatae consequatur deserunt dolorem eos expedita fugiat iusto.
@@ -75,11 +40,12 @@
 import type {PropType} from "vue";
 import type {Chat} from "@/components/Messages/types/Chat";
 
-defineProps({
+const props = defineProps({
   chat: {
     type: Object as PropType<Chat>
   }
 })
+const url = `/src/assets/images/users/${props.chat?.tag}/${props.chat?.profile_photo}`
 </script>
 
 <style scoped lang="scss">

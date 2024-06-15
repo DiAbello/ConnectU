@@ -69,8 +69,10 @@ import { useUserStore } from "@/stores/userStore";
 import { useRouter } from 'vue-router';
 import Cookies from 'universal-cookie';
 import {useNotificationsStore} from "@/stores/notificationsStore";
+import {useChatsStore} from "@/components/Messages/store/chatsStore";
 
 const menu = ref(false)
+const chatStore = useChatsStore()
 const notificationsStore = useNotificationsStore()
 const store = useUserStore()
 const url = `/src/assets/images/users/${store.user?.tag}/`
@@ -86,6 +88,7 @@ function logout() {
   store.friends = []
   notificationsStore.notifications.friends = []
   store.userImages = []
+  chatStore.chats = []
 }
 </script>
 

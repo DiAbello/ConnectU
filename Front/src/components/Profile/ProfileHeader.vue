@@ -161,14 +161,25 @@
               >
                 Хочет добавить вас в друзья
               </VBtn>
-              <VBtn
-                  theme="dark"
-                  style="text-transform: none; background-color: #565656; letter-spacing: normal; background-color: #137313;"
-                  @click="store.addToFriends(store.user?.id, user?.id)"
-                  v-if="store.isFriendshipAvailable === 'friends'"
-              >
-                В друзьях
-              </VBtn>
+              <div v-if="store.isFriendshipAvailable === 'friends'" class="d-flex ga-2">
+                <VBtn
+                    theme="dark"
+                    style="text-transform: none; background-color: #565656; letter-spacing: normal; background-color: #137313;"
+                    @click="store.addToFriends(store.user?.id, user?.id)"
+
+                >
+                  В друзьях
+                </VBtn>
+                <VBtn
+                    theme="dark"
+                    style="text-transform: none; background-color: #E1E3E6; letter-spacing: normal; "
+                >
+                  <router-link :to="'/im' + store.selectedProfile?.id" style="color: black">
+                    Написать сообщение
+                  </router-link>
+                </VBtn>
+              </div>
+
               <v-menu open-on-hover location="bottom left" theme="dark">
                 <template v-slot:activator="{ props }">
                   <font-awesome-icon :icon="['fas', 'ellipsis']" class="cursor-pointer" style="color: #656565; font-size: 18px;" v-bind="props"/>

@@ -9,24 +9,23 @@
           type="text"
           class="input"
           placeholder="Поиск"
-          v-model="searchedValue"
+          v-model="chatStore.searchChat"
       >
       <font-awesome-icon
-          v-if="searchedValue.length > 0"
+          v-if="chatStore.searchChat.length > 0"
           :icon="['fas', 'xmark']"
           style="color: #757575"
           class="cursor-pointer ml-auto"
-          @click="searchedValue = ''"
+          @click="chatStore.searchChat = ''"
       />
     </label>
   </div>
 </template>
 
 <script setup lang="ts">
+import {useChatsStore} from "@/components/Messages/store/chatsStore";
 
-import {ref} from "vue";
-
-const searchedValue = ref('')
+const chatStore = useChatsStore()
 </script>
 
 <style scoped lang="scss">

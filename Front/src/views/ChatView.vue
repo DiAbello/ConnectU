@@ -8,81 +8,22 @@
         </div>
       </div>
       <div class="header__person person">
-        <div class="person__username">
-          Никита Родионов
-        </div>
+        <router-link :to="'/' + chatStore.user.tag" class="person__username" v-if="chatStore.user.name">
+          {{chatStore?.user.name + ' ' + chatStore.user.surname}}
+        </router-link>
       </div>
       <div class="header__ui ui">
-        <div class="ui__img">
-          <img src="@/assets/images/users/@diabello/0ELTe3m_-U4.jpg" alt="">
-        </div>
+        <router-link :to="'/' + chatStore.user.tag" class="ui__img" v-if="chatStore.user.profile_photo">
+          <img :src="chatStore.profileImageUrl" alt="">
+        </router-link>
       </div>
     </div>
     <div class="chat__body body">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam, assumenda corporis cum cupiditate eos fuga maxime, molestiae natus nihil officia officiis omnis qui quo quod ratione repellendus soluta unde.
+      <MySpinner :settings="{fontSize: '24px', color: 'white'}" v-if="isChatLoading" style="margin-top: 120px; text-align: center"/>
+      <MessageList :messages="chatStore.messages" v-if="chatStore.messages.length > 0 && !isChatLoading"/>
+      <div v-else-if="!isChatLoading && chatStore.messages.length < 1" class="text-center mt-4 text-grey-darken-1">
+        Сообщений пока нет. Начните писать и всё появится
+      </div>
     </div>
     <div class="chat__sendMessage sendMessage">
       <div class="sendMessage__attach attach cursor-pointer">
@@ -101,9 +42,9 @@
         </v-menu>
       </div>
       <div class="sendMessage__input sndInput">
-        <input type="text" class="sndInput__input" placeholder="Напишите сообщение...">
+          <input type="text" class="sndInput__input" placeholder="Напишите сообщение..." v-model="messageText" @keyup.enter="sendMessage">
       </div>
-      <div class="sendMessage__button sndButton cursor-pointer">
+      <div class="sendMessage__button sndButton cursor-pointer" @click="sendMessage">
         <font-awesome-icon :icon="['fas', 'paper-plane']" style="color: #898989" class="sndButton__button"/>
       </div>
     </div>
@@ -112,8 +53,38 @@
 
 <script setup lang="ts">
 import {useRouter} from "vue-router";
+import {onMounted, onUnmounted, ref} from "vue";
+import { useChatsStore } from "@/components/Messages/store/chatsStore";
+import {useUserStore} from "@/stores/userStore";
+import MessageList from "@/components/Messages/components/MessageList/MessageList.vue";
 
+const chatStore = useChatsStore()
+const userStore = useUserStore()
 const router = useRouter()
+const messageText = ref<string>('')
+const isChatLoading = ref(false)
+
+onMounted(() => {
+  isChatLoading.value = true
+  chatStore.setUser(Number(router.currentRoute.value.params.chatId)).then(() => {
+    chatStore.getMessages({person1: userStore.user?.id, person2: chatStore.user.id}).then(() => {
+      isChatLoading.value = false
+    })
+  })
+})
+
+function sendMessage() {
+  if(messageText.value.length > 0) {
+    chatStore.sendMessage({content: messageText.value, sender: userStore.user?.id, getter: chatStore.user.id})
+    messageText.value = ''
+    chatStore.getMessages({person1: userStore.user?.id, person2: chatStore.user.id})
+  }
+}
+
+onUnmounted(() => {
+  chatStore.user = {}
+  chatStore.messages = []
+})
 </script>
 
 <style scoped lang="scss">

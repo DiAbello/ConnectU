@@ -7,9 +7,9 @@
       <router-link :to="'/' + friend.tag" class="content__username">
         {{friend.name + ' ' + friend.surname}}
       </router-link>
-      <div class="content__sendMessage">
+      <router-link :to="`/im${friend.id}`" class="content__sendMessage">
         Написать сообщение
-      </div>
+      </router-link>
     </div>
     <div class="friend__interaction">
       <v-menu open-on-hover location="bottom left" theme="dark">
