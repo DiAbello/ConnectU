@@ -12,7 +12,7 @@ import {useChatsStore} from "@/components/Messages/store/chatsStore";
 
 defineProps({
   chats: {
-    type: [] as PropType<Chat[]>,
+    type: Array as PropType<Chat[]>,
     required: true
   }
 })

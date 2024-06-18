@@ -77,7 +77,9 @@ function sendMessage() {
   if(messageText.value.length > 0) {
     chatStore.sendMessage({content: messageText.value, sender: userStore.user?.id, getter: chatStore.user.id})
     messageText.value = ''
-    chatStore.getMessages({person1: userStore.user?.id, person2: chatStore.user.id})
+    chatStore.getMessages({person1: userStore.user?.id, person2: chatStore.user.id}).then(() => {
+      chatStore.getChats(userStore.user?.id)
+    })
   }
 }
 

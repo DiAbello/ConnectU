@@ -2,7 +2,8 @@ import type {User} from "@/types/User";
 
 export interface Chat extends User{
     chatId: number,
-    last_message: string
+    content: string,
+    userId: number
 }
 
 export interface MessageContent {

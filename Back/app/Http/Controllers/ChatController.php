@@ -80,10 +80,24 @@ class ChatController extends Controller
                 if($item -> person1 == $request -> id) {
                     $friend = DB::table('users') -> where('users.id', '=',  $item -> person2) -> first();
                     $friend -> chatId = $chatId;
+                    $latestMessage = DB::table('chat') -> where('chat_id', '=', $chatId) ->  max('send_at');
+                    $content = DB::table('chat') -> select('chat.content', 'chat.user_id as userId') -> where([
+                        ['send_at', '=', $latestMessage],
+                        ['chat_id', '=', $chatId]
+                    ]) -> first();
+                    $friend -> content = $content -> content;
+                    $friend -> userId = $content -> userId;
                     array_push($arr, $friend);
                 } else if ($item -> person2 == $request -> id) {
                     $friend = DB::table('users') -> where('users.id', '=',  $item -> person1) -> first();
                     $friend -> chatId = $chatId;
+                    $latestMessage = DB::table('chat') -> where('chat_id', '=', $chatId) -> max('send_at');
+                    $content = DB::table('chat') -> select('chat.content', 'chat.user_id as userId') -> where([
+                        ['send_at', '=', $latestMessage],
+                        ['chat_id', '=', $chatId]
+                    ]) -> first();
+                    $friend -> content = $content -> content;
+                    $friend -> userId = $content -> userId;
                     array_push($arr, $friend);
                 }
             }

@@ -5,6 +5,7 @@ import type {Chat, Message, MessageContent, Persons} from "@/components/Messages
 import jsonToData from "@/functions/jsonToData";
 
 export const useChatsStore = defineStore('chatsStore', {
+
     state: () => ({
         user: {} as User,
         profileImageUrl: '' as string,
