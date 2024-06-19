@@ -16,15 +16,21 @@
             </router-link>
           </li>
           <li class="nav__item">
-            <router-link to="/im" class="nav__link">
+            <router-link to="/im" class="nav__link messages">
               <font-awesome-icon :icon="['far', 'comment']" style="color: var(--textColor)"/>
               <span>Сообщения</span>
+                <span class="newMessagesCount" v-if="newMessagesCount > 0">
+                {{newMessagesCount}}
+                </span>
             </router-link>
           </li>
           <li class="nav__item">
-            <router-link :to="'/friends/' + store.user?.id" class="nav__link">
+            <router-link :to="'/friends/' + store.user?.id" class="nav__link messages">
               <font-awesome-icon :icon="['fas', 'user-group']" style="color: var(--textColor)"/>
               <span>Друзья</span>
+              <span class="newMessagesCount" v-if="newFriendsCount > 0">
+                {{newFriendsCount}}
+                </span>
             </router-link>
           </li>
         </ul>
@@ -35,11 +41,45 @@
 
 <script setup lang="ts">
 import {useUserStore} from "@/stores/userStore";
+import {useChatsStore} from "@/components/Messages/store/chatsStore";
+import {computed} from "vue";
+import {useNotificationsStore} from "@/stores/notificationsStore";
 
 const store = useUserStore()
+const chatStore = useChatsStore()
+const notificationsStore = useNotificationsStore()
+
+const newMessagesCount = computed(() => {
+  let count = 0;
+  chatStore.chats.forEach(el => {
+    if(el.userId !== store.user?.id) {
+      count++
+    }
+  })
+  return count
+})
+const newFriendsCount = computed(() => {
+  return notificationsStore.notifications.friends.length;
+})
 </script>
 
 <style scoped lang="scss">
+.messages {
+  position: relative;
+  .newMessagesCount {
+    background-color: #828282;
+    font-size: 12px;
+    padding: 4px 6px;
+    border-radius: 50%;
+    margin-left: auto;
+    @media (max-width: 425px) {
+      position: absolute;
+      top: -6px;
+      right: 15px;
+      background-color: red;
+    }
+  }
+}
 
   .active {
     color: #1DA1F2 !important;

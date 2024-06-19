@@ -55,12 +55,17 @@ import type {User} from "@/types/User";
 import {onMounted, ref} from "vue";
 import Cookies from "universal-cookie";
 import {useRouter} from "vue-router";
+import API from "@/API/api";
+import {useNotificationsStore} from "@/stores/notificationsStore";
+import {useChatsStore} from "@/components/Messages/store/chatsStore";
 
 
 const store = useUserStore()
 const path = `/src/assets/images/users/`
 const cookies = new Cookies(['locale'])
 const router = useRouter()
+const notificationsStore = useNotificationsStore()
+const chatsStore = useChatsStore()
 
 onMounted(() => {
   store.setLocalUsers()
@@ -70,6 +75,9 @@ function setUser(user: User) {
   cookies.set('user_token', user.remember_token)
   store.user = user
   router.push({path: '/feed'})
+    notificationsStore.getFriendNotifications(store.user?.id).then(() => {
+      chatsStore.getChats(store.user?.id)
+    })
 }
 </script>
 

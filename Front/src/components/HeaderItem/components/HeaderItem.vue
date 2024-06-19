@@ -10,7 +10,7 @@
           </router-link>
           <SearchComponent/>
           <NotificationsComponent :nt-friends="notificationsStore.notifications.friends"/>
-          <router-link to="/admin" v-if="store.user?.tag === '@admin'">
+          <router-link to="/admin" v-if="store.user?.tag === '@admin'" class="ml-3">
             <VBtn style="text-transform: none; font-size: 13px; letter-spacing: normal;">
               Админ Панель
             </VBtn>

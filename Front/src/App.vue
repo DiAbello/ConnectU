@@ -27,9 +27,11 @@ import Cookies from "universal-cookie";
 import API from "@/API/api";
 import ScrollItem from "@/components/Scroll/ScrollItem.vue";
 import {useNotificationsStore} from "@/stores/notificationsStore";
+import {useChatsStore} from "@/components/Messages/store/chatsStore";
 
 const notificationsStore = useNotificationsStore()
 const store = useUserStore()
+const chatsStore = useChatsStore()
 const cookies = new Cookies(['locale'])
 
 onMounted(() => {
@@ -38,7 +40,9 @@ onMounted(() => {
     store.user = undefined
     API.getUserByToken(token).then(res => {
       store.user = res.data
-      notificationsStore.getFriendNotifications(store.user?.id)
+      notificationsStore.getFriendNotifications(store.user?.id).then(() => {
+        chatsStore.getChats(store.user?.id)
+      })
     })
   }
 })

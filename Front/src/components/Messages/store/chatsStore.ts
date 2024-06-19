@@ -1,4 +1,4 @@
-import { defineStore } from "pinia";
+import {defineStore} from "pinia";
 import type {User} from "@/types/User";
 import $api from "@/API/http";
 import type {Chat, Message, MessageContent, Persons} from "@/components/Messages/types/Chat";
@@ -16,7 +16,7 @@ export const useChatsStore = defineStore('chatsStore', {
     getters: {
         getSearchedChats(state) {
             return () => state.chats.filter(el => el.name.match(this.searchChat))
-        }
+        },
     },
     actions: {
         async setUser(id: number) {
@@ -43,9 +43,17 @@ export const useChatsStore = defineStore('chatsStore', {
             }
         },
         async getChats(id: number | undefined) {
-            const response = await $api.get(`/getChats?id=${id}`)
+            const response = await $api.get<Chat[]>(`/getChats?id=${id}`)
             try {
-                this.chats = response.data
+                this.chats = response.data.sort((a, b) => {
+                    if (a.userId === id && b.userId !== id) {
+                        return 1
+                    } else if (a.userId !== id && b.userId === id) {
+                        return -1
+                    } else {
+                        return 0
+                    }
+                })
                 console.log(response.data)
             } catch (e) {
                 console.log(e)
