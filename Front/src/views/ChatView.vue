@@ -97,6 +97,9 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   height: 90vh;
+  @media (max-width: 425px) {
+    height: 83vh;
+  }
   &__header {
     position: sticky;
     top: 0;

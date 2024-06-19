@@ -2,7 +2,7 @@
   <div class="profile">
     <v-row class="ma-0" style="max-width: 911px">
       <v-col cols="12" class="profile-header d-flex align-end justify-space-between">
-        <div class="d-flex align-center flex-0-0-100 ga-3 header-flex">
+        <div class="d-flex align-center flex-0-0-100 ga-3 header-flex profile-media">
           <div>
             <!--  Image Menu        -------------------------------------------------------------------------->
             <VMenu open-on-hover location="bottom left">
@@ -54,7 +54,7 @@
             </VMenu>
             <!-------------------------------------------------------------------------------------------------------------->
           </div>
-          <div class="flex-1-1-100 d-flex justify-space-between align-start">
+          <div class="flex-1-1-100 d-flex justify-space-between align-start profile-media">
             <div class="info d-flex flex-column ga-3">
               <div class="info__name">
                 {{ user?.name }} {{ user?.surname }}
@@ -266,6 +266,13 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
+.profile-media {
+  @media (max-width: 425px) {
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+  }
+}
 .header-flex {
   @media (max-width: 425px) {
     gap: 2px;
@@ -300,6 +307,10 @@ onMounted(() => {
   &__name {
     font-size: 21px;
     font-weight: 500;
+  }
+  @media (max-width: 425px) {
+    margin: 0 auto;
+    text-align: center;
   }
 
   .VBtn span {

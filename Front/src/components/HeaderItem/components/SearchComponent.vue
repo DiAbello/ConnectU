@@ -65,6 +65,7 @@ watch(queryResponse, () => {
   margin-left: 58px;
   @media (max-width: 425px) {
     margin: 16px;
+    width: 210px;
   }
   &:hover {
     background-color: #525252;

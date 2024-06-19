@@ -36,5 +36,9 @@ onMounted(() => {
 .profile-content {
   flex: 0 1 550px;
   gap: 16px;
+  overflow: hidden;
+  @media (max-width: 425px) {
+    flex: 0 1 auto;
+  }
 }
 </style>

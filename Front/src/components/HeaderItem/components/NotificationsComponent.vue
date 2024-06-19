@@ -45,7 +45,7 @@ const props = defineProps({
 .notification {
   position: relative;
   @media (max-width: 425px) {
-    display: none;
+    //display: none;
   }
   &__icon {
     cursor: pointer;
@@ -53,6 +53,10 @@ const props = defineProps({
     padding: 16px 15px;
     &:hover {
       background-color: #333333;
+    }
+    @media (max-width: 425px) {
+      margin-left: 0;
+      padding: 16px 4px;
     }
   }
 }

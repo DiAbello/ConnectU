@@ -21,7 +21,7 @@ const props = defineProps({
 .friend-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 14px;
   margin-top: 12px;
 }
 </style>
